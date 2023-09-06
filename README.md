@@ -1,6 +1,6 @@
-# calens
+# swap-space
 
-[![Current Tag](https://img.shields.io/github/v/tag/actionhippie/calens?sort=semver)](https://github.com/actionhippie/calens) [![Docker Build](https://github.com/actionhippie/calens/workflows/docker/badge.svg)](https://github.com/actionhippie/calens/actions/workflows/docker.yml)
+[![Current Tag](https://img.shields.io/github/v/tag/actionhippie/swap-space?sort=semver)](https://github.com/actionhippie/swap-space) [![Docker Build](https://github.com/actionhippie/swap-space/workflows/docker/badge.svg)](https://github.com/actionhippie/swap-space/actions/workflows/docker.yml)
 
 [GitHub Action](https://github.com/features/actions) to resize or create swap space.
 
