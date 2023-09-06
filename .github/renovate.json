@@ -1,0 +1,7 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "github>actionhippie/.github//renovate/preset"
+    ],
+    "packageRules": []
+}

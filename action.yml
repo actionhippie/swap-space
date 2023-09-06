@@ -1,0 +1,58 @@
+---
+name: 'swap-space'
+description: 'Resize or create swap space'
+author: 'actionhippie'
+
+inputs:
+  size:
+    description: |
+      Swap size in fallocate format, defaults to `10G`
+    required: false
+    default: '10G'
+  path:
+    description: |
+      Swap path if no swap exists, defaults to `/tmp`
+    required: false
+    default: '/tmp'
+
+runs:
+  using: 'composite'
+
+  steps:
+    - name: Swap space before modification
+      shell: bash
+      run: |
+        echo "Memory and swap:"
+        free -h
+        echo
+        swapon --show
+        echo
+
+    - name: Create or resize swap space
+      shell: bash
+      run: |
+          export SWAP_FILE=$(swapon --show=NAME | tail -n 1)
+
+          if test -z "${SWAP_FILE}"; then
+              export SWAP_FILE=$(mktemp ${{ inputs.path }}/swap.XXXXXXXXXX)
+          else
+              sudo swapoff "${SWAP_FILE}"
+              sudo rm "${SWAP_FILE}"
+          fi
+
+          sudo fallocate -l ${{ inputs.size }} "${SWAP_FILE}"
+
+          sudo chmod 600 "${SWAP_FILE}"
+          sudo mkswap "${SWAP_FILE}"
+          sudo swapon "${SWAP_FILE}"
+
+    - name: Swap space after modification
+      shell: bash
+      run: |
+        echo "Memory and swap:"
+        free -h
+        echo
+        swapon --show
+        echo
+
+...
