@@ -34,7 +34,7 @@ runs:
           export SWAP_FILE=$(swapon --show=NAME | tail -n 1)
 
           if test -z "${SWAP_FILE}"; then
-              export SWAP_FILE=$(mktemp ${{ inputs.path }}/swap.XXXXXXXXXX)
+              export SWAP_FILE=$(sudo mktemp ${{ inputs.path }}/swap.XXXXXXXXXX)
           else
               sudo swapoff "${SWAP_FILE}"
               sudo rm "${SWAP_FILE}"
