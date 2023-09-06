@@ -11,9 +11,9 @@ inputs:
     default: '10G'
   path:
     description: |
-      Swap path if no swap exists, defaults to `/tmp`
+      Swap path if no swap exists, defaults to `/swapfile`
     required: false
-    default: '/tmp'
+    default: '/swapfile'
 
 runs:
   using: 'composite'
@@ -34,7 +34,7 @@ runs:
           export SWAP_FILE=$(swapon --show=NAME | tail -n 1)
 
           if test -z "${SWAP_FILE}"; then
-              export SWAP_FILE=$(sudo mktemp ${{ inputs.path }}/swap.XXXXXXXXXX)
+              export SWAP_FILE=${{ inputs.path }}
           else
               sudo swapoff "${SWAP_FILE}"
               sudo rm "${SWAP_FILE}"

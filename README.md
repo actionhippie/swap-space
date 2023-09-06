@@ -33,7 +33,7 @@ Swap size in fallocate format, defaults to `10`
 
 ### `path`
 
-Swap path if no swap exists, defaults to `/tmp`
+Swap path if no swap exists, defaults to `/swapfile`
 
 ## Outputs
 
