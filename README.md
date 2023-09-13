@@ -29,7 +29,7 @@ jobs:
 
 ### `size`
 
-Swap size in fallocate format, defaults to `10`
+Swap size in fallocate format, defaults to `10G`
 
 ### `path`
 
