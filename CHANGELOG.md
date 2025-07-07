@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/actionhippie/swap-space/compare/v1.0.2...v1.1.0) (2025-07-07)
+
+
+### Features
+
+* replace release workflow and add workflow langserver ref ([4484f8e](https://github.com/actionhippie/swap-space/commit/4484f8e6bab5de0d5278b5bd110632f0ac5eb28f))
+
 ## [1.0.2](https://github.com/actionhippie/swap-space/compare/v1.0.1...v1.0.2) (2023-09-06)
 
 
