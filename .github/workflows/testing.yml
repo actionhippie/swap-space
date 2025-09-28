@@ -22,15 +22,15 @@ jobs:
 
     steps:
       - name: Checkout source
-        uses: actions/checkout@v5
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
 
       - name: Lint yaml
-        uses: actionhippie/yamllint@v1
+        uses: actionhippie/yamllint@829ae84c56cdd0134c9cb25eb5ee19dabe6694d8 # v1
         with:
           strict: true
 
       - name: Update version
-        uses: nowactions/update-majorver@v1
+        uses: nowactions/update-majorver@f2014bbbba95b635e990ce512c5653bd0f4753fb # v1
         if: startsWith(github.ref, 'refs/tags/v')
 
 ...
