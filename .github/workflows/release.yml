@@ -3,9 +3,12 @@
 name: release
 
 "on":
+  workflow_dispatch:
   schedule:
     - cron: "0 8 * * 1"
-  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   release:
@@ -18,22 +21,27 @@ jobs:
           token: ${{ secrets.BOT_ACCESS_TOKEN }}
 
       - name: Write buildtime
-        run: date >| .github/RELEASEDATE
+        run: date >| .github/RELEASE
 
-      - name: Semantic release
-        uses: cycjimmy/semantic-release-action@v3
+      - name: Install releaser
+        run: |
+          npm install -g \
+            conventional-changelog-conventionalcommits@6.1.0 \
+            semantic-release@23.1.1 \
+            @semantic-release/changelog \
+            @semantic-release/git
+
+      - name: Run releaser
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
-        with:
-          extra_plugins: |
-            conventional-changelog-conventionalcommits@6.1.0
+        run: semantic-release
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
           author_name: GitHub Actions
           author_email: github@webhippie.de
-          add: .github/RELEASEDATE
+          add: .github/RELEASE
           message: "docs: automated release update [skip ci]"
           push: true
           commit: --signoff

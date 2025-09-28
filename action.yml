@@ -1,7 +1,11 @@
 ---
-name: 'swap-space'
+# yaml-language-server: $schema=https://www.schemastore.org/github-action.json
+name: 'actionhippie-swap-space'
 description: 'Resize or create swap space'
 author: 'actionhippie'
+branding:
+  icon: box
+  color: green
 
 inputs:
   size:

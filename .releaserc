@@ -98,7 +98,11 @@
             "@semantic-release/git",
             {
                 "message": "chore: release ${nextRelease.version}",
-                "assets": ["CHANGELOG.md", "action.yml", ".github/RELEASE"]
+                "assets": [
+                    "CHANGELOG.md",
+                    ".github/RELEASE",
+                    "action.yml"
+                ]
             }
         ],
         [
