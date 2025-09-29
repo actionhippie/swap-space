@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
 
       - name: Lint yaml
-        uses: actionhippie/yamllint@829ae84c56cdd0134c9cb25eb5ee19dabe6694d8 # v1
+        uses: actionhippie/yamllint@7e7bad36591e48134e900ae1828318656a192c8a # v1
         with:
           strict: true
 
