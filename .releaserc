@@ -100,8 +100,7 @@
                 "message": "chore: release ${nextRelease.version}",
                 "assets": [
                     "CHANGELOG.md",
-                    ".github/RELEASE",
-                    "action.yml"
+                    ".github/RELEASE"
                 ]
             }
         ],
