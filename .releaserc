@@ -53,10 +53,6 @@
                 "presetConfig": {
                     "types": [
                         {
-                            "type": "feat",
-                            "section": "Features"
-                        },
-                        {
                             "type": "major",
                             "section": "Features"
                         },
@@ -65,16 +61,25 @@
                             "section": "Features"
                         },
                         {
-                            "type": "fix",
-                            "section": "Bugfixes"
-                        },
-                        {
                             "type": "patch",
                             "section": "Bugfixes"
                         },
                         {
+                            "type": "feat",
+                            "section": "Features"
+                        },
+                        {
+                            "type": "fix",
+                            "section": "Bugfixes"
+                        },
+                        {
+                            "type": "deps",
+                            "section": "Dependencies"
+                        },
+                        {
                             "type": "chore",
-                            "hidden": true
+                            "section": "Miscellaneous",
+                            "hidden": false
                         },
                         {
                             "type": "docs",
