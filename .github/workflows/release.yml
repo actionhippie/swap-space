@@ -13,6 +13,7 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    if: github.repository_owner == 'rolehippie'
 
     steps:
       - name: Setup nodejs
@@ -24,9 +25,12 @@ jobs:
         id: token
         uses: actions/create-github-app-token@v3
         with:
-          app-id: ${{ secrets.TOKEN_EXCHANGE_APP }}
+          client-id: ${{ secrets.TOKEN_EXCHANGE_APP }}
           private-key: ${{ secrets.TOKEN_EXCHANGE_KEY }}
           permission-contents: write
+          permission-pull-requests: write
+          permission-issues: write
+          permission-packages: write
 
       - name: Checkout source
         uses: actions/checkout@v7
@@ -39,16 +43,20 @@ jobs:
       - name: Install releaser
         run: |
           npm install -g \
-            semantic-release@25.0.2 \
+            semantic-release \
             @semantic-release/changelog \
             @semantic-release/git \
             @semantic-release/github \
-            conventional-changelog-conventionalcommits
+            semantic-release-replace-plugin \
+            conventional-changelog-conventionalcommits@9
 
       - name: Run releaser
         env:
           GITHUB_TOKEN: ${{ steps.token.outputs.token }}
         run: semantic-release
+
+      - name: Source rebase
+        run: git pull --autostash --rebase
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v10

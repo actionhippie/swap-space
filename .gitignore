@@ -1,4 +1,1 @@
-.direnv/
-.devenv/
-
-.pre-commit-config.yaml
+mise.local.toml

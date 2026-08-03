@@ -1,0 +1,6 @@
+#:schema https://mise.jdx.dev/schema/mise.json
+
+[tools]
+node = "24"
+pre-commit = "4.6.1"
+yamllint = "1.38.0"
