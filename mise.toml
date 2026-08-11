@@ -2,5 +2,5 @@
 
 [tools]
 node = "24"
-pre-commit = "4.6.1"
+pre-commit = "4.6.2"
 yamllint = "1.38.0"
