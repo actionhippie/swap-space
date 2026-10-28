@@ -1,6 +1,6 @@
 #:schema https://mise.jdx.dev/schema/mise.json
 
 [tools]
-node = "24"
+node = "26"
 prek = "0.5.7"
 yamllint = "1.38.0"
