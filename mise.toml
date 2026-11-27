@@ -2,5 +2,5 @@
 
 [tools]
 node = "26"
-prek = "0.5.11"
+prek = "0.5.12"
 yamllint = "1.38.0"
